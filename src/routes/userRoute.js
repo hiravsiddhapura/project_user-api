@@ -15,6 +15,7 @@ router.post("/users", async (req, res) => {
             return res.status(400).json({ message: "email already exists" });
         }
         const addUser = new UsersDetail(req.body)
+        console.log("🚀 ~ router.post ~ addUser:", addUser)
         const insertUsers = await addUser.save();
         console.log(insertUsers);
         const payload = {
